@@ -3,7 +3,7 @@
   <style>
     .logo-text { font-family: 'Arial', sans-serif; font-weight: bold; }
     .primary { fill: #00512d; }
-    .secondary { fill: #333; }
+    .secondary { fill: #ffffff; }
   </style>
   
   <!-- Logo Icon - Diamond Shape -->

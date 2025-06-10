@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boston - WP Residence Real Estate Theme</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
@@ -19,23 +22,59 @@
             background-color: #00512d;
             transition: width 0.3s ease;
         }
+
         .header-underline:hover::before,
         .current-menu-item .header-underline::before {
             width: 100%;
         }
-        
+
         @media (max-width: 1023px) {
             .header-underline::before {
                 display: none;
             }
         }
+
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-scrolled .header-link {
+            color: #1e293b;
+        }
+
+        .header-scrolled .header-phone {
+            color: #648c37;
+        }
+
+        .header-scrolled .header-mobile-btn {
+            color: #1e293b;
+        }
+
+        .header-scrolled .header-logo-white {
+            display: none;
+        }
+
+        .header-scrolled .header-logo-dark {
+            display: block;
+        }
+
+        /* Điều chỉnh header-underline cho header trong suốt */
+        .header-underline::before {
+            background-color: #ffffff;
+        }
+
+        .header-scrolled .header-underline::before {
+            background-color: #00512d;
+        }
         
+
         /* Responsive Section Padding */
         .section-padding {
             padding-left: 5%;
             padding-right: 5%;
         }
-        
+
         /* Small screens - SM (≥640px) */
         @media (min-width: 640px) {
             .section-padding {
@@ -43,7 +82,7 @@
                 padding-right: 8%;
             }
         }
-        
+
         /* Medium screens - MD (≥768px) */
         @media (min-width: 768px) {
             .section-padding {
@@ -51,7 +90,7 @@
                 padding-right: 10%;
             }
         }
-        
+
         /* Large screens - LG (≥1024px) */
         @media (min-width: 1024px) {
             .section-padding {
@@ -59,7 +98,7 @@
                 padding-right: 12%;
             }
         }
-        
+
         /* Laptop 16 inch (≥1280px & <1920px) - XL */
         @media (min-width: 1280px) and (max-width: 1919px) {
             .section-padding {
@@ -67,7 +106,7 @@
                 padding-right: 15%;
             }
         }
-        
+
         /* 27 inch monitors and larger (≥1920px) - 2XL */
         @media (min-width: 1920px) {
             .section-padding {
@@ -75,11 +114,11 @@
                 padding-right: 25%;
             }
         }
-        
+
         .shadow-header {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-        
+
         /* Slider styles */
         .slider {
             position: relative;
@@ -88,7 +127,7 @@
             width: 100%;
             margin-bottom: -6rem;
         }
-        
+
         .slide {
             position: absolute;
             top: 0;
@@ -100,51 +139,52 @@
             background-size: cover;
             background-position: center;
         }
-        
+
         .slide.active {
             opacity: 1;
         }
-        
+
         .slide-content {
             position: absolute;
             top: 35%;
-            left: 25%;  
+            left: 25%;
             transform: translateY(-50%);
             max-width: 700px;
             z-index: 100;
         }
-        
-        .slide.active .slide-content > div,
-        .slide.active .slide-content > h1,
-        .slide.active .slide-content > button {
+
+        .slide.active .slide-content>div,
+        .slide.active .slide-content>h1,
+        .slide.active .slide-content>button {
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
         }
-        
-        .slide.active .slide-content > div {
+
+        .slide.active .slide-content>div {
             animation-delay: 0.3s;
         }
-        
-        .slide.active .slide-content > h1 {
+
+        .slide.active .slide-content>h1 {
             animation-delay: 0.6s;
         }
-        
-        .slide.active .slide-content > button {
+
+        .slide.active .slide-content>button {
             animation-delay: 0.9s;
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .slide-overlay {
             position: absolute;
             top: 0;
@@ -153,7 +193,7 @@
             height: 100%;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
         }
-        
+
         .agent-image {
             position: absolute;
             bottom: 0;
@@ -163,18 +203,18 @@
             display: flex;
             align-items: flex-end;
         }
-        
+
         .agent-image img {
             height: 100%;
             object-fit: contain;
             filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
             transition: transform 0.5s ease;
         }
-        
+
         .agent-image img:hover {
             transform: scale(1.02);
         }
-        
+
         @media (max-width: 1023px) {
             .slide-content {
                 left: 50%;
@@ -182,12 +222,12 @@
                 text-align: center;
                 padding: 0 20px;
             }
-            
+
             .agent-image {
                 display: none;
             }
         }
-        
+
         /* Slider dots */
         .slider-dots {
             position: absolute;
@@ -196,7 +236,7 @@
             z-index: 100;
             display: flex;
         }
-        
+
         .dot {
             width: 12px;
             height: 12px;
@@ -206,18 +246,18 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        
+
         .dot.active {
             background-color: #ffffff;
         }
-        
+
         @media (max-width: 1023px) {
             .slider-dots {
                 left: 50%;
                 transform: translateX(-50%);
             }
         }
-        
+
         /* Agent image frame */
         .agent-frame {
             position: relative;
@@ -226,36 +266,40 @@
             border-radius: 0;
             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
             z-index: 20;
-            margin-top: -45%; /* Tăng lên từ -200px để đưa hình ảnh lên cao hơn */
-            margin-right: 6%; /* Giảm margin bên phải để hình ảnh có thể lớn hơn */
-            max-width: 620px; /* Tăng kích thước tối đa từ 560px */
+            margin-top: -45%;
+            /* Tăng lên từ -200px để đưa hình ảnh lên cao hơn */
+            margin-right: 6%;
+            /* Giảm margin bên phải để hình ảnh có thể lớn hơn */
+            max-width: 620px;
+            /* Tăng kích thước tối đa từ 560px */
             margin-left: auto;
         }
-        
+
         .agent-frame img {
             width: 100%;
             height: auto;
             display: block;
-            transform: scale(1.015); /* Thêm scale để làm cho hình ảnh lớn hơn một chút */
+            transform: scale(1.015);
+            /* Thêm scale để làm cho hình ảnh lớn hơn một chút */
             transform-origin: center center;
             transition: all 0.5s ease;
         }
-        
+
         /* Neighborhood card hover effects */
         .neighborhood-card {
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        
+
         .neighborhood-card:hover .neighborhood-image {
             filter: brightness(1.4);
         }
-        
+
         .neighborhood-image {
             transition: all 0.3s ease;
         }
-        
-   
+
+
         /* Font styles for Real Estate Services section */
         .service-title {
             font-family: 'Playfair Display', serif;
@@ -265,7 +309,7 @@
             color: #1e293b;
             margin-bottom: 1.5rem;
         }
-        
+
         .service-text {
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
@@ -274,7 +318,7 @@
             color: #475569;
             margin-bottom: 2rem;
         }
-        
+
         .agent-name {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -282,13 +326,13 @@
             font-size: 1.25rem;
             margin-bottom: 0.25rem;
         }
-        
+
         .agent-title {
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
             color: #64748b;
         }
-        
+
         @media (max-width: 768px) {
             .agent-frame {
                 margin-top: 0;
@@ -297,16 +341,17 @@
                 max-width: 100%;
             }
         }
-        
+
         /* Services section positioning */
         .service-section {
             position: relative;
             z-index: 10;
             background: #fff;
-            padding-top: 8rem; /* Tăng từ 6rem lên 8rem để cân đối với hình ảnh */
+            padding-top: 8rem;
+            /* Tăng từ 6rem lên 8rem để cân đối với hình ảnh */
             padding-bottom: 5rem;
         }
-        
+
         /* Service item styles */
         .service-item {
             padding: 1.5rem;
@@ -314,14 +359,14 @@
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
         }
-        
+
         /* Adjustments for mobile */
         @media (max-width: 768px) {
             .service-section {
                 margin-top: 0;
             }
         }
-        
+
         /* Property Card Styles */
         .property-card {
             width: 100%;
@@ -332,53 +377,53 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             flex: 0 0 auto;
         }
-        
+
         .property-card.w-full {
             width: 100%;
         }
-        
+
         .property-card.md\:w-1\/2 {
             width: 100%;
         }
-        
+
         .property-card.lg\:w-1\/3 {
             width: 100%;
         }
-        
+
         @media (min-width: 768px) {
             .property-card.md\:w-1\/2 {
                 width: 50%;
             }
         }
-        
+
         @media (min-width: 1024px) {
             .property-card.lg\:w-1\/3 {
                 width: 33.333333%;
             }
         }
-        
+
         .property-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
+
         .property-image-container {
             position: relative;
             height: 220px;
             overflow: hidden;
         }
-        
+
         .property-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .property-card:hover .property-image {
             transform: scale(1.05);
         }
-        
+
         .property-tag {
             display: inline-block;
             padding: 4px 12px;
@@ -386,27 +431,27 @@
             font-weight: 500;
             border-radius: 3px;
         }
-        
+
         .property-tag.featured {
             background-color: rgba(241, 217, 181, 0.9);
             color: #92400E;
         }
-        
+
         .property-tag.rentals {
             background-color: rgba(21, 77, 48, 0.9);
             color: #ffffff;
         }
-        
+
         .property-tag.sales {
             background-color: rgba(21, 77, 48, 0.9);
             color: #ffffff;
         }
-        
+
         .property-tag.active {
             background-color: #4ade80;
             color: white;
         }
-        
+
         .property-location {
             display: flex;
             align-items: center;
@@ -415,7 +460,7 @@
             font-weight: 500;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
-        
+
         .property-stats {
             display: flex;
             align-items: center;
@@ -423,7 +468,7 @@
             font-size: 0.9rem;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
-        
+
         .property-title {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -432,14 +477,14 @@
             margin-bottom: 0.5rem;
             line-height: 1.2;
         }
-        
+
         .property-price {
             color: #648c37;
             font-weight: 700;
             font-size: 1.25rem;
             margin-bottom: 1rem;
         }
-        
+
         .property-description {
             color: #64748b;
             font-size: 0.9rem;
@@ -450,25 +495,25 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        
+
         .property-features {
             display: flex;
             justify-content: space-between;
             padding-top: 1rem;
             border-top: 1px solid #e5e7eb;
         }
-        
+
         .property-feature {
             display: flex;
             align-items: center;
             color: #6B7280;
             font-size: 0.875rem;
         }
-        
+
         .property-feature i {
             margin-right: 0.5rem;
         }
-        
+
         .property-footer {
             display: flex;
             justify-content: space-between;
@@ -476,12 +521,12 @@
             padding: 1rem;
             border-top: 1px solid #e5e7eb;
         }
-        
+
         .property-agent {
             display: flex;
             align-items: center;
         }
-        
+
         .property-agent img {
             width: 32px;
             height: 32px;
@@ -489,13 +534,13 @@
             object-fit: cover;
             margin-right: 0.5rem;
         }
-        
+
         .property-agent-name {
             font-size: 0.875rem;
             font-weight: 500;
             color: #1e293b;
         }
-        
+
         .property-agent-image {
             width: 32px;
             height: 32px;
@@ -503,12 +548,12 @@
             object-fit: cover;
             margin-right: 0.5rem;
         }
-        
+
         .property-actions {
             display: flex;
             gap: 0.5rem;
         }
-        
+
         .property-action-button {
             background: none;
             border: none;
@@ -516,15 +561,15 @@
             cursor: pointer;
             transition: color 0.2s ease;
         }
-        
+
         .property-action-button:hover {
             color: #4ade80;
         }
-        
+
         .property-action-button.favorite:hover {
             color: #ef4444;
         }
-        
+
         .property-pagination-dot {
             width: 10px;
             height: 10px;
@@ -533,12 +578,12 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .property-pagination-dot.active {
             background-color: #648c37;
             transform: scale(1.2);
         }
-        
+
         .property-navigation-button {
             width: 40px;
             height: 40px;
@@ -551,25 +596,25 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .property-navigation-button:hover {
             background-color: #648c37;
             color: white;
             border-color: #648c37;
         }
-        
+
         /* Property Slider Container Styles */
         .property-slider-container {
             width: 100%;
             position: relative;
             overflow: hidden;
         }
-        
+
         .property-slider-track {
             display: flex;
             transition: transform 0.5s ease;
         }
-        
+
         @media (max-width: 768px) {
             .property-card {
                 margin-bottom: 1rem;
@@ -577,93 +622,118 @@
         }
     </style>
 </head>
+
 <body class="font-sans text-wp-text">
     <!-- Header Section -->
-    <header class="sticky top-0 z-50 w-full bg-white border-b border-wp-gray transition duration-300">
+    <header class="fixed top-0 z-50 w-full transition-all duration-300" id="main-header">
         <div class="max-w-7xl mx-auto px-6 lg:px-10 flex justify-between items-center h-24">
             <!-- Logo -->
             <div class="h-14">
                 <a href="#" class="flex items-center">
-                    <img src="images/wp-residence-logo.svg" class="h-12" alt="WP Residence">
+                    <img src="images/wp-residence-logo-white.svg" class="h-12 header-logo-white" alt="WP Residence">
+                    <img src="images/wp-residence-logo.svg" class="h-12 header-logo-dark hidden" alt="WP Residence">
                 </a>
             </div>
-            
+
             <!-- Main Navigation -->
             <nav class="hidden lg:block flex-1 mx-6">
                 <ul class="flex justify-center space-x-8">
                     <li class="relative group current-menu-item">
-                        <a href="#" class="block py-8 text-sm font-medium text-wp-text hover:text-wp-green relative header-underline">Home</a>
+                        <a href="#"
+                            class="block py-8 text-sm font-medium text-white relative header-underline header-link">Home</a>
                     </li>
                     <li class="relative group">
-                        <a href="#" class="block py-8 text-sm font-medium text-wp-text hover:text-wp-green relative header-underline">Demos</a>
+                        <a href="#"
+                            class="block py-8 text-sm font-medium text-white relative header-underline header-link">Demos</a>
                     </li>
                     <li class="relative group">
-                        <a href="#" class="block py-8 text-sm font-medium text-wp-text hover:text-wp-green relative header-underline">
+                        <a href="#"
+                            class="block py-8 text-sm font-medium text-white relative header-underline header-link">
                             Properties
                             <i class="fas fa-angle-down ml-1 text-xs"></i>
                         </a>
-                        <ul class="absolute left-0 hidden pt-2 w-56 bg-white shadow-lg rounded-md group-hover:block transition-all duration-300 z-50">
+                        <ul
+                            class="absolute left-0 hidden pt-2 w-56 bg-white shadow-lg rounded-md group-hover:block transition-all duration-300 z-50">
                             <li>
-                                <a href="#" class="block px-5 py-2 text-sm hover:bg-gray-50 hover:text-wp-green">Property Single Page</a>
+                                <a href="#"
+                                    class="block px-5 py-2 text-sm hover:bg-gray-50 hover:text-wp-green">Property Single
+                                    Page</a>
                             </li>
                             <li>
-                                <a href="#" class="block px-5 py-2 text-sm hover:bg-gray-50 hover:text-wp-green">Properties Standard List</a>
+                                <a href="#"
+                                    class="block px-5 py-2 text-sm hover:bg-gray-50 hover:text-wp-green">Properties
+                                    Standard List</a>
                             </li>
                             <li>
-                                <a href="#" class="block px-5 py-2 text-sm hover:bg-gray-50 hover:text-wp-green">Half Map Properties List</a>
+                                <a href="#" class="block px-5 py-2 text-sm hover:bg-gray-50 hover:text-wp-green">Half
+                                    Map Properties List</a>
                             </li>
                         </ul>
                     </li>
                     <li class="relative group">
-                        <a href="#" class="block py-8 text-sm font-medium text-wp-text hover:text-wp-green relative header-underline">Agent</a>
+                        <a href="#"
+                            class="block py-8 text-sm font-medium text-white relative header-underline header-link">Agent</a>
                     </li>
                     <li class="relative group">
-                        <a href="#" class="block py-8 text-sm font-medium text-wp-text hover:text-wp-green relative header-underline">
+                        <a href="#"
+                            class="block py-8 text-sm font-medium text-white relative header-underline header-link">
                             Blog
                             <i class="fas fa-angle-down ml-1 text-xs"></i>
                         </a>
-                        <ul class="absolute left-0 hidden pt-2 w-56 bg-white shadow-lg rounded-md group-hover:block transition-all duration-300 z-50">
+                        <ul
+                            class="absolute left-0 hidden pt-2 w-56 bg-white shadow-lg rounded-md group-hover:block transition-all duration-300 z-50">
                             <li>
-                                <a href="#" class="block px-5 py-2 text-sm hover:bg-gray-50 hover:text-wp-green">Blog List</a>
+                                <a href="#" class="block px-5 py-2 text-sm hover:bg-gray-50 hover:text-wp-green">Blog
+                                    List</a>
                             </li>
                             <li>
-                                <a href="#" class="block px-5 py-2 text-sm hover:bg-gray-50 hover:text-wp-green">Blog Single Post</a>
+                                <a href="#" class="block px-5 py-2 text-sm hover:bg-gray-50 hover:text-wp-green">Blog
+                                    Single Post</a>
                             </li>
                         </ul>
                     </li>
                     <li class="relative group">
-                        <a href="#" class="block py-8 text-sm font-medium text-wp-text hover:text-wp-green relative header-underline">Contact</a>
+                        <a href="#"
+                            class="block py-8 text-sm font-medium text-white relative header-underline header-link">Contact</a>
                     </li>
                 </ul>
             </nav>
-            
+
             <!-- Phone Number -->
-            <div class="hidden lg:flex items-center text-wp-green">
+            <div class="hidden lg:flex items-center text-white header-phone">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 fill-current" viewBox="0 0 295.64 369.54">
-                    <path d="M231.99 189.12c18.12,10.07 36.25,20.14 54.37,30.21 7.8,4.33 11.22,13.52 8.15,21.9 -15.59,42.59 -61.25,65.07 -104.21,49.39 -87.97,-32.11 -153.18,-97.32 -185.29,-185.29 -15.68,-42.96 6.8,-88.62 49.39,-104.21 8.38,-3.07 17.57,0.35 21.91,8.15 10.06,18.12 20.13,36.25 30.2,54.37 4.72,8.5 3.61,18.59 -2.85,25.85 -8.46,9.52 -16.92,19.04 -25.38,28.55 18.06,43.98 55.33,81.25 99.31,99.31 9.51,-8.46 19.03,-16.92 28.55,-25.38 7.27,-6.46 17.35,-7.57 25.85,-2.85z"></path>
+                    <path
+                        d="M231.99 189.12c18.12,10.07 36.25,20.14 54.37,30.21 7.8,4.33 11.22,13.52 8.15,21.9 -15.59,42.59 -61.25,65.07 -104.21,49.39 -87.97,-32.11 -153.18,-97.32 -185.29,-185.29 -15.68,-42.96 6.8,-88.62 49.39,-104.21 8.38,-3.07 17.57,0.35 21.91,8.15 10.06,18.12 20.13,36.25 30.2,54.37 4.72,8.5 3.61,18.59 -2.85,25.85 -8.46,9.52 -16.92,19.04 -25.38,28.55 18.06,43.98 55.33,81.25 99.31,99.31 9.51,-8.46 19.03,-16.92 28.55,-25.38 7.27,-6.46 17.35,-7.57 25.85,-2.85z">
+                    </path>
                 </svg>
                 <a href="tel:+1 800-555-6789" class="text-base font-medium">+1 800-555-6789</a>
             </div>
-            
+
+
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="lg:hidden focus:outline-none">
-                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <button id="mobile-menu-button" class="lg:hidden focus:outline-none text-white header-mobile-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
                 </svg>
             </button>
         </div>
-        
+
         <!-- Mobile Navigation -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-wp-gray">
             <div class="px-4 py-3 space-y-3">
                 <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Home</a>
-                
+
                 <!-- Demos Dropdown -->
                 <div class="mobile-dropdown">
-                    <button class="flex items-center justify-between w-full py-2 text-base text-wp-text hover:text-wp-green mobile-dropdown-toggle">
+                    <button
+                        class="flex items-center justify-between w-full py-2 text-base text-wp-text hover:text-wp-green mobile-dropdown-toggle">
                         Demos
-                        <svg class="dropdown-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <svg class="dropdown-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
                     </button>
                     <div class="hidden mobile-submenu pl-4 space-y-2">
@@ -672,30 +742,39 @@
                         <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Demo 3</a>
                     </div>
                 </div>
-                
+
                 <!-- Properties Dropdown -->
                 <div class="mobile-dropdown">
-                    <button class="flex items-center justify-between w-full py-2 text-base text-wp-text hover:text-wp-green mobile-dropdown-toggle">
+                    <button
+                        class="flex items-center justify-between w-full py-2 text-base text-wp-text hover:text-wp-green mobile-dropdown-toggle">
                         Properties
-                        <svg class="dropdown-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <svg class="dropdown-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
                     </button>
                     <div class="hidden mobile-submenu pl-4 space-y-2">
-                        <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Property Single Page</a>
-                        <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Properties Standard List</a>
-                        <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Half Map Properties List</a>
+                        <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Property Single
+                            Page</a>
+                        <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Properties Standard
+                            List</a>
+                        <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Half Map Properties
+                            List</a>
                     </div>
                 </div>
-                
+
                 <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Agent</a>
-                
+
                 <!-- Blog Dropdown -->
                 <div class="mobile-dropdown">
-                    <button class="flex items-center justify-between w-full py-2 text-base text-wp-text hover:text-wp-green mobile-dropdown-toggle">
+                    <button
+                        class="flex items-center justify-between w-full py-2 text-base text-wp-text hover:text-wp-green mobile-dropdown-toggle">
                         Blog
-                        <svg class="dropdown-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <svg class="dropdown-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
                     </button>
                     <div class="hidden mobile-submenu pl-4 space-y-2">
@@ -703,12 +782,15 @@
                         <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Blog Single Post</a>
                     </div>
                 </div>
-                
+
                 <a href="#" class="block py-2 text-base text-wp-text hover:text-wp-green">Contact</a>
-                
+
                 <div class="mt-4 py-2 flex items-center text-wp-green">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 fill-current" viewBox="0 0 295.64 369.54">
-                        <path d="M231.99 189.12c18.12,10.07 36.25,20.14 54.37,30.21 7.8,4.33 11.22,13.52 8.15,21.9 -15.59,42.59 -61.25,65.07 -104.21,49.39 -87.97,-32.11 -153.18,-97.32 -185.29,-185.29 -15.68,-42.96 6.8,-88.62 49.39,-104.21 8.38,-3.07 17.57,0.35 21.91,8.15 10.06,18.12 20.13,36.25 30.2,54.37 4.72,8.5 3.61,18.59 -2.85,25.85 -8.46,9.52 -16.92,19.04 -25.38,28.55 18.06,43.98 55.33,81.25 99.31,99.31 9.51,-8.46 19.03,-16.92 28.55,-25.38 7.27,-6.46 17.35,-7.57 25.85,-2.85z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 fill-current"
+                        viewBox="0 0 295.64 369.54">
+                        <path
+                            d="M231.99 189.12c18.12,10.07 36.25,20.14 54.37,30.21 7.8,4.33 11.22,13.52 8.15,21.9 -15.59,42.59 -61.25,65.07 -104.21,49.39 -87.97,-32.11 -153.18,-97.32 -185.29,-185.29 -15.68,-42.96 6.8,-88.62 49.39,-104.21 8.38,-3.07 17.57,0.35 21.91,8.15 10.06,18.12 20.13,36.25 30.2,54.37 4.72,8.5 3.61,18.59 -2.85,25.85 -8.46,9.52 -16.92,19.04 -25.38,28.55 18.06,43.98 55.33,81.25 99.31,99.31 9.51,-8.46 19.03,-16.92 28.55,-25.38 7.27,-6.46 17.35,-7.57 25.85,-2.85z">
+                        </path>
                     </svg>
                     <a href="tel:+1 800-555-6789" class="text-base font-medium">+1 800-555-6789</a>
                 </div>
@@ -725,26 +807,28 @@
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <div class="text-white mb-3 text-sm font-semibold uppercase tracking-wider">RELIABLE</div>
-                    <h1 class="text-4xl md:text-6xl font-bold text-white font-playfair mb-5">Property management<br>for all your needs</h1>
+                    <h1 class="text-4xl md:text-6xl font-bold text-white font-playfair mb-5">Property management<br>for
+                        all your needs</h1>
                 </div>
             </div>
-            
+
             <!-- Slide 2 -->
             <div class="slide" style="background-image: url('images/slider4.jpeg');">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <div class="text-white mb-3 text-sm font-semibold uppercase tracking-wider">EXCLUSIVE</div>
-                    <h1 class="text-4xl md:text-6xl font-bold text-white font-playfair mb-5">Luxury homes<br>in Boston area</h1>
+                    <h1 class="text-4xl md:text-6xl font-bold text-white font-playfair mb-5">Luxury homes<br>in Boston
+                        area</h1>
                 </div>
             </div>
-            
+
             <!-- Slider Navigation Dots -->
             <div class="slider-dots">
                 <div class="dot active" data-slide="0"></div>
                 <div class="dot" data-slide="1"></div>
             </div>
         </section>
-        
+
         <!-- Real Estate Services Section -->
         <section class="service-section w-full section-padding">
             <div class="container mx-auto px-4">
@@ -753,14 +837,17 @@
                     <div class="w-full md:w-2/5 md:pr-8 mb-8 md:mb-0 pt-8">
                         <h2 class="service-title">Top real<br>estate services</h2>
                         <p class="service-text">
-                            With over $2 Billion in sales, Jessica Stone is the industry's top luxury producer with over 27 years of experience in marketing Boston's most prestigious properties. Due to her unparalleled results, expertise and dedication, Jessica ranks amongst the Top 6 agents in Boston.
+                            With over $2 Billion in sales, Jessica Stone is the industry's top luxury producer with over
+                            27 years of experience in marketing Boston's most prestigious properties. Due to her
+                            unparalleled results, expertise and dedication, Jessica ranks amongst the Top 6 agents in
+                            Boston.
                         </p>
                         <div>
                             <h3 class="agent-name">Jessica Stone</h3>
                             <p class="agent-title">Boston Realtor</p>
                         </div>
                     </div>
-                    
+
                     <!-- Right Content Area (Image) -->
                     <div class="w-full md:w-3/5 relative">
                         <div class="agent-frame">
@@ -770,7 +857,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Latest Properties Section -->
         <section class="py-16 bg-white section-padding">
             <div class="container mx-auto px-4">
@@ -786,16 +873,18 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Properties Slider Container -->
                 <div class="property-slider-container overflow-hidden">
-                    <div class="property-slider-track flex transition-transform duration-500" style="transform: translateX(0);">
+                    <div class="property-slider-track flex transition-transform duration-500"
+                        style="transform: translateX(0);">
                         <!-- Property Card 1 - Villa with panoramic view -->
                         <div class="property-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-2">
                             <div class="card-inner shadow-lg rounded-lg overflow-hidden">
                                 <!-- Property Image -->
                                 <div class="property-image-container">
-                                    <img src="images/properties/designer5--525x328.jpeg" alt="Villa with panoramic view" class="property-image">
+                                    <img src="images/properties/designer5--525x328.jpeg" alt="Villa with panoramic view"
+                                        class="property-image">
                                     <!-- Tags -->
                                     <div class="absolute top-4 left-4 flex flex-wrap gap-2">
                                         <span class="property-tag featured">Featured</span>
@@ -811,13 +900,14 @@
                                         <span class="flex items-center"><i class="fas fa-camera mr-1"></i> 6</span>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Details -->
                                 <div class="p-6">
                                     <h3 class="property-title">Villa with panoramic view</h3>
                                     <p class="property-price">$ 5,500,000</p>
-                                    <p class="property-description">Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood...</p>
-                                    
+                                    <p class="property-description">Beautiful, updated, ground level Co-op apartment in
+                                        the desirable Bay Terrace neighborhood...</p>
+
                                     <!-- Property Features -->
                                     <div class="property-features">
                                         <div class="property-feature">
@@ -834,7 +924,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Footer -->
                                 <div class="property-footer">
                                     <div class="property-agent">
@@ -855,13 +945,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Property Card 2 -->
                         <div class="property-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-2">
                             <div class="card-inner shadow-lg rounded-lg overflow-hidden">
                                 <!-- Property Image -->
                                 <div class="property-image-container">
-                                    <img src="images/properties/designer_home-2-525x328.jpeg" alt="Modern apartment for sale" class="property-image">
+                                    <img src="images/properties/designer_home-2-525x328.jpeg"
+                                        alt="Modern apartment for sale" class="property-image">
                                     <!-- Tags -->
                                     <div class="absolute top-4 left-4 flex flex-wrap gap-2">
                                         <span class="property-tag featured">Featured</span>
@@ -877,13 +968,14 @@
                                         <span class="flex items-center"><i class="fas fa-camera mr-1"></i> 8</span>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Details -->
                                 <div class="p-6">
                                     <h3 class="property-title">Modern apartment for sale</h3>
                                     <p class="property-price">$ 3,200,000</p>
-                                    <p class="property-description">Stunning contemporary design with open floor plan and high-end finishes throughout. Perfect for modern living...</p>
-                                    
+                                    <p class="property-description">Stunning contemporary design with open floor plan
+                                        and high-end finishes throughout. Perfect for modern living...</p>
+
                                     <!-- Property Features -->
                                     <div class="property-features">
                                         <div class="property-feature">
@@ -900,7 +992,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Footer -->
                                 <div class="property-footer">
                                     <div class="property-agent">
@@ -921,18 +1013,19 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Property Card 3 -->
                         <div class="property-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-2">
                             <div class="card-inner shadow-lg rounded-lg overflow-hidden">
                                 <!-- Property Image -->
                                 <div class="property-image-container">
-                                    <img src="images/properties/book_small-525x328.jpg" alt="Luxury penthouse with view" class="property-image">
+                                    <img src="images/properties/book_small-525x328.jpg" alt="Luxury penthouse with view"
+                                        class="property-image">
                                     <!-- Tags -->
                                     <div class="absolute top-4 left-4 flex flex-wrap gap-2">
                                         <span class="property-tag featured">Featured</span>
                                         <span class="property-tag rentals">Rentals</span>
-                                     
+
                                     </div>
                                     <!-- Property Meta -->
                                     <div class="absolute bottom-4 left-4 property-location">
@@ -944,13 +1037,14 @@
                                         <span class="flex items-center"><i class="fas fa-camera mr-1"></i> 12</span>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Details -->
                                 <div class="p-6">
                                     <h3 class="property-title">Luxury penthouse with view</h3>
                                     <p class="property-price">$ 12,000 / month</p>
-                                    <p class="property-description">Exquisite penthouse featuring panoramic city views, private terrace, and premium amenities in the heart of Boston...</p>
-                                    
+                                    <p class="property-description">Exquisite penthouse featuring panoramic city views,
+                                        private terrace, and premium amenities in the heart of Boston...</p>
+
                                     <!-- Property Features -->
                                     <div class="property-features">
                                         <div class="property-feature">
@@ -967,7 +1061,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Footer -->
                                 <div class="property-footer">
                                     <div class="property-agent">
@@ -988,13 +1082,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Property Card 4 (New) -->
                         <div class="property-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-2">
                             <div class="card-inner shadow-lg rounded-lg overflow-hidden">
                                 <!-- Property Image -->
                                 <div class="property-image-container">
-                                    <img src="images/properties/decor_nice-1-525x328.jpg" alt="Gorgeous studio for rent" class="property-image">
+                                    <img src="images/properties/decor_nice-1-525x328.jpg" alt="Gorgeous studio for rent"
+                                        class="property-image">
                                     <!-- Tags -->
                                     <div class="absolute top-4 left-4 flex flex-wrap gap-2">
                                         <span class="property-tag featured">Featured</span>
@@ -1010,13 +1105,14 @@
                                         <span class="flex items-center"><i class="fas fa-camera mr-1"></i> 6</span>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Details -->
                                 <div class="p-6">
                                     <h3 class="property-title">Gorgeous studio for rent</h3>
                                     <p class="property-price">$ 770,000</p>
-                                    <p class="property-description">This property is mostly wooded and sits high on a hilltop overlooking the Mohawk River Val...</p>
-                                    
+                                    <p class="property-description">This property is mostly wooded and sits high on a
+                                        hilltop overlooking the Mohawk River Val...</p>
+
                                     <!-- Property Features -->
                                     <div class="property-features">
                                         <div class="property-feature">
@@ -1033,7 +1129,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Footer -->
                                 <div class="property-footer">
                                     <div class="property-agent">
@@ -1054,13 +1150,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Property Card 5 (New) -->
                         <div class="property-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-2">
                             <div class="card-inner shadow-lg rounded-lg overflow-hidden">
                                 <!-- Property Image -->
                                 <div class="property-image-container">
-                                    <img src="images/properties/book2_small-525x328.jpg" alt="Awesome family apartment" class="property-image">
+                                    <img src="images/properties/book2_small-525x328.jpg" alt="Awesome family apartment"
+                                        class="property-image">
                                     <!-- Tags -->
                                     <div class="absolute top-4 left-4 flex flex-wrap gap-2">
                                         <span class="property-tag rentals">Rentals</span>
@@ -1075,13 +1172,14 @@
                                         <span class="flex items-center"><i class="fas fa-camera mr-1"></i> 6</span>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Details -->
                                 <div class="p-6">
                                     <h3 class="property-title">Awesome family apartment</h3>
                                     <p class="property-price">$ 550 / month</p>
-                                    <p class="property-description">Mckinley Hill is situated inside Fort Bonifacio which is a 50 hectares owned by Megaworld. ...</p>
-                                    
+                                    <p class="property-description">Mckinley Hill is situated inside Fort Bonifacio
+                                        which is a 50 hectares owned by Megaworld. ...</p>
+
                                     <!-- Property Features -->
                                     <div class="property-features">
                                         <div class="property-feature">
@@ -1098,7 +1196,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Footer -->
                                 <div class="property-footer">
                                     <div class="property-agent">
@@ -1119,13 +1217,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Property Card 6 (New) -->
                         <div class="property-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-2">
                             <div class="card-inner shadow-lg rounded-lg overflow-hidden">
                                 <!-- Property Image -->
                                 <div class="property-image-container">
-                                    <img src="images/properties/decor_nice-2-525x328.jpg" alt="Modern condo with city view" class="property-image">
+                                    <img src="images/properties/decor_nice-2-525x328.jpg"
+                                        alt="Modern condo with city view" class="property-image">
                                     <!-- Tags -->
                                     <div class="absolute top-4 left-4 flex flex-wrap gap-2">
                                         <span class="property-tag featured">Featured</span>
@@ -1141,13 +1240,14 @@
                                         <span class="flex items-center"><i class="fas fa-camera mr-1"></i> 6</span>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Details -->
                                 <div class="p-6">
                                     <h3 class="property-title">Modern condo with city view</h3>
                                     <p class="property-price">$ 4,350,000</p>
-                                    <p class="property-description">Luxurious condo with panoramic views of the Boston skyline, featuring high-end finishes and state-of-the-art amenities...</p>
-                                    
+                                    <p class="property-description">Luxurious condo with panoramic views of the Boston
+                                        skyline, featuring high-end finishes and state-of-the-art amenities...</p>
+
                                     <!-- Property Features -->
                                     <div class="property-features">
                                         <div class="property-feature">
@@ -1164,7 +1264,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Property Footer -->
                                 <div class="property-footer">
                                     <div class="property-agent">
@@ -1187,7 +1287,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Pagination Dots -->
                 <div class="flex justify-center mt-12 space-x-2 pagination-dots-container">
                     <span class="property-pagination-dot active" data-slide="0"></span>
@@ -1197,7 +1297,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Featured Neighborhoods Section -->
         <section class="py-16 bg-gray-50 section-padding">
             <div class="container mx-auto px-4">
@@ -1205,80 +1305,95 @@
                 <div class="mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold font-playfair text-gray-800">Featured Neighborhoods</h2>
                 </div>
-                
+
                 <!-- Neighborhoods Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- First Row -->
                     <div class="neighborhood-card relative overflow-hidden rounded-lg h-80">
-                        <div class="neighborhood-image absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500" 
-                             style="background-image: url('images/boston/boston-4-500.jpeg');">
-                            <div class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-500"></div>
+                        <div class="neighborhood-image absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500"
+                            style="background-image: url('images/boston/boston-4-500.jpeg');">
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-500">
+                            </div>
                         </div>
                         <div class="absolute inset-0 flex flex-col justify-end items-center p-6 text-white">
                             <div class="absolute bottom-6 flex flex-col items-center">
                                 <h3 class="text-2xl font-bold mb-2 text-center">Downtown</h3>
-                                <span class="bg-[#648c37] text-white text-sm font-medium px-3 py-1 rounded-md inline-flex items-center">
+                                <span
+                                    class="bg-[#648c37] text-white text-sm font-medium px-3 py-1 rounded-md inline-flex items-center">
                                     4 Listings
                                 </span>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="neighborhood-card relative overflow-hidden rounded-lg h-80">
-                        <div class="neighborhood-image absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500" 
-                             style="background-image: url('images/boston/boston-5-660.jpeg');">
-                            <div class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-500"></div>
+                        <div class="neighborhood-image absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500"
+                            style="background-image: url('images/boston/boston-5-660.jpeg');">
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-500">
+                            </div>
                         </div>
                         <div class="absolute inset-0 flex flex-col justify-end items-center p-6 text-white">
                             <div class="absolute bottom-6 flex flex-col items-center">
                                 <h3 class="text-2xl font-bold mb-2 text-center">North End</h3>
-                                <span class="bg-[#648c37] text-white text-sm font-medium px-3 py-1 rounded-md inline-flex items-center">
-                                    1 Listing
-                                </span>
-                            </div>  
-                        </div>
-                    </div>
-                    
-                    <div class="neighborhood-card relative overflow-hidden rounded-lg h-80">
-                        <div class="neighborhood-image absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500" 
-                             style="background-image: url('images/boston/boston-3-500.jpeg');">
-                            <div class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-500"></div>
-                        </div>
-                        <div class="absolute inset-0 flex flex-col justify-end items-center p-6 text-white">
-                            <div class="absolute bottom-6 flex flex-col items-center">
-                                <h3 class="text-2xl font-bold mb-2 text-center">Dock Square</h3>
-                                <span class="bg-[#648c37] text-white text-sm font-medium px-3 py-1 rounded-md inline-flex items-center">
+                                <span
+                                    class="bg-[#648c37] text-white text-sm font-medium px-3 py-1 rounded-md inline-flex items-center">
                                     1 Listing
                                 </span>
                             </div>
                         </div>
                     </div>
-                    
+
+                    <div class="neighborhood-card relative overflow-hidden rounded-lg h-80">
+                        <div class="neighborhood-image absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500"
+                            style="background-image: url('images/boston/boston-3-500.jpeg');">
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-500">
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col justify-end items-center p-6 text-white">
+                            <div class="absolute bottom-6 flex flex-col items-center">
+                                <h3 class="text-2xl font-bold mb-2 text-center">Dock Square</h3>
+                                <span
+                                    class="bg-[#648c37] text-white text-sm font-medium px-3 py-1 rounded-md inline-flex items-center">
+                                    1 Listing
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Second Row -->
                     <div class="neighborhood-card relative overflow-hidden rounded-lg h-80 md:col-span-2">
-                        <div class="neighborhood-image absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500" 
-                             style="background-image: url('images/boston/boston-500.jpeg');">
-                            <div class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-500"></div>
+                        <div class="neighborhood-image absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500"
+                            style="background-image: url('images/boston/boston-500.jpeg');">
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-500">
+                            </div>
                         </div>
                         <div class="absolute inset-0 flex flex-col justify-end items-center p-6 text-white">
                             <div class="absolute bottom-6 flex flex-col items-center">
                                 <h3 class="text-2xl font-bold mb-2 text-center">Beacon Hill</h3>
-                                <span class="bg-[#648c37] text-white text-sm font-medium px-3 py-1 rounded-md inline-flex items-center">
+                                <span
+                                    class="bg-[#648c37] text-white text-sm font-medium px-3 py-1 rounded-md inline-flex items-center">
                                     3 Listings
                                 </span>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="neighborhood-card relative overflow-hidden rounded-lg h-80">
-                        <div class="neighborhood-image absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500" 
-                             style="background-image: url('images/boston/boston-2-500.jpeg');">
-                            <div class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-500"></div>
+                        <div class="neighborhood-image absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500"
+                            style="background-image: url('images/boston/boston-2-500.jpeg');">
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-500">
+                            </div>
                         </div>
                         <div class="absolute inset-0 flex flex-col justify-end items-center p-6 text-white">
                             <div class="absolute bottom-6 flex flex-col items-center">
                                 <h3 class="text-2xl font-bold mb-2 text-center">Center</h3>
-                                <span class="bg-[#648c37] text-white text-sm font-medium px-3 py-1 rounded-md inline-flex items-center">
+                                <span
+                                    class="bg-[#648c37] text-white text-sm font-medium px-3 py-1 rounded-md inline-flex items-center">
                                     1 Listing
                                 </span>
                             </div>
@@ -1287,61 +1402,77 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Real Estate Services Offer Section -->
         <section class="py-16 bg-gray-50 section-padding">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <!-- Left Column - Text Content -->
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold font-playfair text-gray-800 mb-6">We help our clients sell, buy or rent properties hassle free</h2>
-                        
+                        <h2 class="text-3xl md:text-4xl font-bold font-playfair text-gray-800 mb-6">We help our clients
+                            sell, buy or rent properties hassle free</h2>
+
                         <p class="text-gray-600 mb-8">
-                            Utilizing his exceptional experience and knowledge of the luxury waterfront markets, Roland serves an extensive and elite worldwide client base. He enjoys a reputation as a tenacious Broker.
+                            Utilizing his exceptional experience and knowledge of the luxury waterfront markets, Roland
+                            serves an extensive and elite worldwide client base. He enjoys a reputation as a tenacious
+                            Broker.
                         </p>
-                        
+
                         <ul class="space-y-4">
                             <li class="flex items-start">
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
+                                <div
+                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
                                     <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
                                 <span class="ml-3 text-gray-600">24/7 Support available</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
+                                <div
+                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
                                     <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
                                 <span class="ml-3 text-gray-600">Expert legal support from us</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
+                                <div
+                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
                                     <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
                                 <span class="ml-3 text-gray-600">Free submission on our website</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
+                                <div
+                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
                                     <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
                                 <span class="ml-3 text-gray-600">Home loans assistance from our staff</span>
                             </li>
                         </ul>
-                        
+
                         <div class="mt-10">
-                            <a href="#" class="inline-block px-8 py-3 bg-[#648c37] text-white font-medium rounded hover:bg-[#4e6b2a] transition-all duration-300">
+                            <a href="#"
+                                class="inline-block px-8 py-3 bg-[#648c37] text-white font-medium rounded hover:bg-[#4e6b2a] transition-all duration-300">
                                 Contact us today
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Right Column - Service Cards -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Left Column - Service Card 1 in center -->
@@ -1351,16 +1482,19 @@
                                 <div class="mb-6">
                                     <div class="w-16 h-16 bg-[#f1f7eb] rounded-lg flex items-center justify-center">
                                         <svg class="w-8 h-8 text-[#648c37]" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                                            <path
+                                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                                            </path>
                                         </svg>
                                     </div>
                                 </div>
                                 <h3 class="text-2xl font-bold text-gray-800 mb-3">Sell your home</h3>
-                                <p class="text-gray-600 mb-4">We do a free evaluation to be sure you want to start selling.</p>
+                                <p class="text-gray-600 mb-4">We do a free evaluation to be sure you want to start
+                                    selling.</p>
                                 <a href="#" class="text-[#648c37] font-medium hover:underline">Read more</a>
                             </div>
                         </div>
-                        
+
                         <!-- Right Column - Service Card 2 and 3 in column layout -->
                         <div class="grid grid-cols-1 gap-6">
                             <!-- Service Card 2 - Free photoshoot -->
@@ -1368,26 +1502,32 @@
                                 <div class="mb-6">
                                     <div class="w-16 h-16 bg-[#f1f7eb] rounded-lg flex items-center justify-center">
                                         <svg class="w-8 h-8 text-[#648c37]" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                                            <path fill-rule="evenodd"
+                                                d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z"
+                                                clip-rule="evenodd"></path>
                                         </svg>
                                     </div>
                                 </div>
                                 <h3 class="text-2xl font-bold text-gray-800 mb-3">Free photoshoot</h3>
-                                <p class="text-gray-600 mb-4">We do a free evaluation to be sure you want to start selling.</p>
+                                <p class="text-gray-600 mb-4">We do a free evaluation to be sure you want to start
+                                    selling.</p>
                                 <a href="#" class="text-[#648c37] font-medium hover:underline">Read more</a>
                             </div>
-                            
+
                             <!-- Service Card 3 - Buy a home -->
                             <div class="bg-white p-6 rounded-lg shadow-lg">
                                 <div class="mb-6">
                                     <div class="w-16 h-16 bg-[#f1f7eb] rounded-lg flex items-center justify-center">
                                         <svg class="w-8 h-8 text-[#648c37]" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v1h-3zM4.75 12.094A5.973 5.973 0 004 15v1H1v-1a3 3 0 013.75-2.906z"></path>
+                                            <path
+                                                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v1h-3zM4.75 12.094A5.973 5.973 0 004 15v1H1v-1a3 3 0 013.75-2.906z">
+                                            </path>
                                         </svg>
                                     </div>
                                 </div>
                                 <h3 class="text-2xl font-bold text-gray-800 mb-3">Buy a home</h3>
-                                <p class="text-gray-600 mb-4">We do a free evaluation to be sure you want to start selling.</p>
+                                <p class="text-gray-600 mb-4">We do a free evaluation to be sure you want to start
+                                    selling.</p>
                                 <a href="#" class="text-[#648c37] font-medium hover:underline">Read more</a>
                             </div>
                         </div>
@@ -1395,7 +1535,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Featured Listings Section -->
         <section class="py-16 bg-gray-50 section-padding">
             <div class="container mx-auto px-4">
@@ -1403,30 +1543,34 @@
                 <div class="mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold font-playfair text-gray-800">Featured listings</h2>
                 </div>
-                
+
                 <!-- Listings Slider with Navigation -->
                 <div class="relative">
                     <!-- Navigation Buttons -->
                     <div class="absolute left-0 top-1/2 transform -translate-y-1/2 -ml-12 z-10">
-                        <button class="w-10 h-10 rounded-full bg-[#648c37] text-white flex items-center justify-center shadow-lg prev-listing">
+                        <button
+                            class="w-10 h-10 rounded-full bg-[#648c37] text-white flex items-center justify-center shadow-lg prev-listing">
                             <i class="fas fa-chevron-left"></i>
                         </button>
                     </div>
                     <div class="absolute right-0 top-1/2 transform -translate-y-1/2 -mr-12 z-10">
-                        <button class="w-10 h-10 rounded-full bg-[#648c37] text-white flex items-center justify-center shadow-lg next-listing">
+                        <button
+                            class="w-10 h-10 rounded-full bg-[#648c37] text-white flex items-center justify-center shadow-lg next-listing">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
-                    
+
                     <!-- Listings Grid -->
                     <div class="listings-slider overflow-hidden">
                         <div class="listings-track flex transition-transform duration-500 gap-6">
                             <!-- Listing 1 -->
                             <div class="listing-card min-w-[300px] flex-shrink-0">
                                 <div class="relative overflow-hidden rounded-lg">
-                                    <img src="images/properties/decor_nice-1-525x328.jpg" alt="Townhouse for rent" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                    <img src="images/properties/decor_nice-1-525x328.jpg" alt="Townhouse for rent"
+                                        class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                                     <div class="absolute top-4 left-4">
-                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$ 2,100 / month</span>
+                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$
+                                            2,100 / month</span>
                                     </div>
                                 </div>
                                 <div class="mt-4">
@@ -1437,13 +1581,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Listing 2 -->
                             <div class="listing-card min-w-[300px] flex-shrink-0">
                                 <div class="relative overflow-hidden rounded-lg">
-                                    <img src="images/properties/designer5--525x328.jpeg" alt="Villa with panoramic view" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                    <img src="images/properties/designer5--525x328.jpeg" alt="Villa with panoramic view"
+                                        class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                                     <div class="absolute top-4 left-4">
-                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$ 5,500,000</span>
+                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$
+                                            5,500,000</span>
                                     </div>
                                 </div>
                                 <div class="mt-4">
@@ -1454,13 +1600,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Listing 3 -->
                             <div class="listing-card min-w-[300px] flex-shrink-0">
                                 <div class="relative overflow-hidden rounded-lg">
-                                    <img src="images/properties/book_small-525x328.jpg" alt="Apartment with ocean view" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                    <img src="images/properties/book_small-525x328.jpg" alt="Apartment with ocean view"
+                                        class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                                     <div class="absolute top-4 left-4">
-                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$ 1,900,000</span>
+                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$
+                                            1,900,000</span>
                                     </div>
                                 </div>
                                 <div class="mt-4">
@@ -1471,13 +1619,16 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Listing 4 -->
                             <div class="listing-card min-w-[300px] flex-shrink-0">
                                 <div class="relative overflow-hidden rounded-lg">
-                                    <img src="images/properties/designer_home-2-525x328.jpeg" alt="Boutique space for rent" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                    <img src="images/properties/designer_home-2-525x328.jpeg"
+                                        alt="Boutique space for rent"
+                                        class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                                     <div class="absolute top-4 left-4">
-                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$ 800 / month</span>
+                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$
+                                            800 / month</span>
                                     </div>
                                 </div>
                                 <div class="mt-4">
@@ -1488,13 +1639,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Listing 5 -->
                             <div class="listing-card min-w-[300px] flex-shrink-0">
                                 <div class="relative overflow-hidden rounded-lg">
-                                    <img src="images/properties/designer7-2-525x328.jpeg" alt="Modern condo for rent" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                    <img src="images/properties/designer7-2-525x328.jpeg" alt="Modern condo for rent"
+                                        class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                                     <div class="absolute top-4 left-4">
-                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$ 2,500 / month</span>
+                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$
+                                            2,500 / month</span>
                                     </div>
                                 </div>
                                 <div class="mt-4">
@@ -1505,13 +1658,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Listing 6 -->
                             <div class="listing-card min-w-[300px] flex-shrink-0">
                                 <div class="relative overflow-hidden rounded-lg">
-                                    <img src="images/properties/decor_nice-2-525x328.jpg" alt="Gorgeous studio for rent" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                    <img src="images/properties/decor_nice-2-525x328.jpg" alt="Gorgeous studio for rent"
+                                        class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                                     <div class="absolute top-4 left-4">
-                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$ 770,000</span>
+                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$
+                                            770,000</span>
                                     </div>
                                 </div>
                                 <div class="mt-4">
@@ -1522,13 +1677,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Listing 7 -->
                             <div class="listing-card min-w-[300px] flex-shrink-0">
                                 <div class="relative overflow-hidden rounded-lg">
-                                    <img src="images/properties/book2_small-525x328.jpg" alt="Family home" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                                    <img src="images/properties/book2_small-525x328.jpg" alt="Family home"
+                                        class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                                     <div class="absolute top-4 left-4">
-                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$ 3,150 / month</span>
+                                        <span class="bg-[#648c37] text-white text-xs font-medium px-2 py-1 rounded">$
+                                            3,150 / month</span>
                                     </div>
                                 </div>
                                 <div class="mt-4">
@@ -1544,7 +1701,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Testimonials Section -->
         <section class="py-16 bg-white section-padding pt-17">
             <div class="container mx-auto px-4">
@@ -1552,19 +1709,21 @@
                 <div class="mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold font-playfair text-gray-800">Testimonials</h2>
                 </div>
-                
+
                 <!-- Testimonials Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Testimonial 1 -->
                     <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                         <div class="flex items-center mb-4">
-                            <img src="images/testimonials/testimonial1.jpeg" alt="Donna Gilmore" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
+                            <img src="images/testimonials/testimonial1.jpeg" alt="Donna Gilmore"
+                                class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
                             <div>
                                 <h4 class="text-lg font-bold text-gray-800">Donna Gilmore</h4>
                                 <p class="text-sm text-gray-500">happy seller</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">I reviewed and purchased a number of different WordPress Themes before settling on Wp Residence.</p>
+                        <p class="text-gray-600 mb-4">I reviewed and purchased a number of different WordPress Themes
+                            before settling on Wp Residence.</p>
                         <div class="flex text-yellow-400">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1573,17 +1732,19 @@
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    
+
                     <!-- Testimonial 2 -->
                     <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                         <div class="flex items-center mb-4">
-                            <img src="images/testimonials/testimonial2.jpeg" alt="Mika Gilmore" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
+                            <img src="images/testimonials/testimonial2.jpeg" alt="Mika Gilmore"
+                                class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
                             <div>
                                 <h4 class="text-lg font-bold text-gray-800">Mika Gilmore</h4>
                                 <p class="text-sm text-gray-500">happy seller</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">The WP Estate team did an outstanding job helping me buy and create my first real estate website.</p>
+                        <p class="text-gray-600 mb-4">The WP Estate team did an outstanding job helping me buy and
+                            create my first real estate website.</p>
                         <div class="flex text-yellow-400">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1592,17 +1753,19 @@
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    
+
                     <!-- Testimonial 3 -->
                     <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                         <div class="flex items-center mb-4">
-                            <img src="images/testimonials/testimonial3.jpeg" alt="Lisa Simpson" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
+                            <img src="images/testimonials/testimonial3.jpeg" alt="Lisa Simpson"
+                                class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
                             <div>
                                 <h4 class="text-lg font-bold text-gray-800">Lisa Simpson</h4>
                                 <p class="text-sm text-gray-500">happy buyer</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">We hired the WP Estate team as our buyer agent because they are the perfect team for real estate projects.</p>
+                        <p class="text-gray-600 mb-4">We hired the WP Estate team as our buyer agent because they are
+                            the perfect team for real estate projects.</p>
                         <div class="flex text-yellow-400">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1611,17 +1774,19 @@
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    
+
                     <!-- Testimonial 4 -->
                     <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                         <div class="flex items-center mb-4">
-                            <img src="images/testimonials/testimonial4.jpg" alt="Jane Fonda" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
+                            <img src="images/testimonials/testimonial4.jpg" alt="Jane Fonda"
+                                class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
                             <div>
                                 <h4 class="text-lg font-bold text-gray-800">Jane Fonda</h4>
                                 <p class="text-sm text-gray-500">happy seller</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">I reviewed and purchased a number of different WordPress Themes before settling on Wp Residence.</p>
+                        <p class="text-gray-600 mb-4">I reviewed and purchased a number of different WordPress Themes
+                            before settling on Wp Residence.</p>
                         <div class="flex text-yellow-400">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1630,17 +1795,19 @@
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    
+
                     <!-- Testimonial 5 -->
                     <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                         <div class="flex items-center mb-4">
-                            <img src="images/testimonials/testimonial5.jpg" alt="Susan Peterson" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
+                            <img src="images/testimonials/testimonial5.jpg" alt="Susan Peterson"
+                                class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
                             <div>
                                 <h4 class="text-lg font-bold text-gray-800">Susan Peterson</h4>
                                 <p class="text-sm text-gray-500">happy seller</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">The WP Estate team did an outstanding job helping me buy and create my first real estate website.</p>
+                        <p class="text-gray-600 mb-4">The WP Estate team did an outstanding job helping me buy and
+                            create my first real estate website.</p>
                         <div class="flex text-yellow-400">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1649,17 +1816,19 @@
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    
+
                     <!-- Testimonial 6 -->
                     <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                         <div class="flex items-center mb-4">
-                            <img src="images/testimonials/testimonials6.jpg" alt="Beatrice Jeffrey" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
+                            <img src="images/testimonials/testimonials6.jpg" alt="Beatrice Jeffrey"
+                                class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-gray-100">
                             <div>
                                 <h4 class="text-lg font-bold text-gray-800">Beatrice Jeffrey</h4>
                                 <p class="text-sm text-gray-500">happy buyer</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">We hired the WP Estate team as our buyer agent because they are the perfect team for real estate projects.</p>
+                        <p class="text-gray-600 mb-4">We hired the WP Estate team as our buyer agent because they are
+                            the perfect team for real estate projects.</p>
                         <div class="flex text-yellow-400">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1671,63 +1840,79 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Contact Form Section -->
         <section class="py-16 bg-white relative overflow-hidden section-padding">
-            <div class="absolute top-0 left-0 w-full h-full bg-gray-100 rounded-[100%] scale-[2.3] translate-y-[70%]"></div>
+            <div class="absolute top-0 left-0 w-full h-full bg-gray-100 rounded-[100%] scale-[2.3] translate-y-[70%]">
+            </div>
             <div class="container mx-auto px-4 relative z-10">
                 <div class="bg-white rounded-lg shadow-xl overflow-hidden max-w-5xl mx-auto">
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <!-- Left Column - Contact Form -->
                         <div class="p-7 md:p-9">
-                            <h2 class="text-2xl md:text-2xl font-bold font-playfair text-gray-800 mb-4">Get in touch with me to plan your next real estate transaction</h2>
-                            <p class="text-gray-600 mb-7">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                            
+                            <h2 class="text-2xl md:text-2xl font-bold font-playfair text-gray-800 mb-4">Get in touch
+                                with me to plan your next real estate transaction</h2>
+                            <p class="text-gray-600 mb-7">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+                                Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+
                             <form class="space-y-4">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label for="last_name" class="block text-sm font-medium text-gray-600 mb-2">Last name*</label>
-                                        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#648c37] focus:border-transparent">
+                                        <label for="last_name" class="block text-sm font-medium text-gray-600 mb-2">Last
+                                            name*</label>
+                                        <input type="text" id="last_name" name="last_name" placeholder="Last name"
+                                            class="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#648c37] focus:border-transparent">
                                     </div>
                                     <div>
-                                        <label for="first_name" class="block text-sm font-medium text-gray-600 mb-2">First name*</label>
-                                        <input type="text" id="first_name" name="first_name" placeholder="First name" class="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#648c37] focus:border-transparent">
+                                        <label for="first_name"
+                                            class="block text-sm font-medium text-gray-600 mb-2">First name*</label>
+                                        <input type="text" id="first_name" name="first_name" placeholder="First name"
+                                            class="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#648c37] focus:border-transparent">
                                     </div>
                                 </div>
-                                
+
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label for="email" class="block text-sm font-medium text-gray-600 mb-2">Email*</label>
-                                        <input type="email" id="email" name="email" placeholder="Email" class="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#648c37] focus:border-transparent">
+                                        <label for="email"
+                                            class="block text-sm font-medium text-gray-600 mb-2">Email*</label>
+                                        <input type="email" id="email" name="email" placeholder="Email"
+                                            class="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#648c37] focus:border-transparent">
                                     </div>
                                     <div>
-                                        <label for="mobile" class="block text-sm font-medium text-gray-600 mb-2">Mobile</label>
-                                        <input type="tel" id="mobile" name="mobile" placeholder="Mobile" class="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#648c37] focus:border-transparent">
+                                        <label for="mobile"
+                                            class="block text-sm font-medium text-gray-600 mb-2">Mobile</label>
+                                        <input type="tel" id="mobile" name="mobile" placeholder="Mobile"
+                                            class="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#648c37] focus:border-transparent">
                                     </div>
                                 </div>
-                                
+
                                 <div>
-                                    <label for="message" class="block text-sm font-medium text-gray-600 mb-2">Message</label>
-                                    <textarea id="message" name="message" rows="5" placeholder="Message" class="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#648c37] focus:border-transparent"></textarea>
+                                    <label for="message"
+                                        class="block text-sm font-medium text-gray-600 mb-2">Message</label>
+                                    <textarea id="message" name="message" rows="5" placeholder="Message"
+                                        class="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#648c37] focus:border-transparent"></textarea>
                                 </div>
-                                
+
                                 <div>
-                                    <button type="submit" class="w-full bg-[#648c37] text-white font-medium py-3 px-5 rounded hover:bg-[#4e6b2a] transition-all duration-300 text-lg">Send Email</button>
+                                    <button type="submit"
+                                        class="w-full bg-[#648c37] text-white font-medium py-3 px-5 rounded hover:bg-[#4e6b2a] transition-all duration-300 text-lg">Send
+                                        Email</button>
                                 </div>
                             </form>
                         </div>
-                        
+
                         <!-- Right Column - Agent Image -->
                         <div class="hidden md:block">
-                            <img src="images/agent/agent_2_contact.jpeg" alt="Real Estate Agent" class="w-full h-full object-cover">
+                            <img src="images/agent/agent_2_contact.jpeg" alt="Real Estate Agent"
+                                class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-      
-       
+
+
+
     </main>
 
     <!-- Footer Section -->
@@ -1738,10 +1923,11 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4 text-gray-800">About us</h3>
                     <p class="text-sm mb-4">
-                        We are committed to providing the most personalized real estate services from listing to close. We have exceptional results which are confirmed by the number of clients we serve.
+                        We are committed to providing the most personalized real estate services from listing to close.
+                        We have exceptional results which are confirmed by the number of clients we serve.
                     </p>
                 </div>
-                
+
                 <!-- Company -->
                 <div>
                     <h3 class="text-lg font-semibold mb-4 text-gray-800">Company</h3>
@@ -1752,7 +1938,7 @@
                         <li><a href="#" class="hover:text-[#648c37]">Terms Conditions</a></li>
                     </ul>
                 </div>
-                
+
                 <!-- Quick links -->
                 <div>
                     <h3 class="text-lg font-semibold mb-4 text-gray-800">Quick links</h3>
@@ -1763,7 +1949,7 @@
                         <li><a href="#" class="hover:text-[#648c37]">Our blog</a></li>
                     </ul>
                 </div>
-                
+
                 <!-- Contact -->
                 <div>
                     <h3 class="text-lg font-semibold mb-4 text-gray-800">Contact</h3>
@@ -1787,7 +1973,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Copyright and Social Media -->
             <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-sm mb-4 md:mb-0">&copy; 2023 WP Residence. All rights reserved.</p>
@@ -1807,5 +1993,26 @@
     <script src="js/slider.js"></script>
     <script src="js/property-slider.js"></script>
     <script src="js/listings-slider.js"></script>
+    <!-- Header Scroll Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.getElementById('main-header');
+        
+        function toggleHeaderClass() {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        }
+        
+        // Kiểm tra ngay khi trang tải
+        toggleHeaderClass();
+        
+        // Thêm event listener cho scroll
+        window.addEventListener('scroll', toggleHeaderClass);
+    });
+</script>
 </body>
-</html> 
+
+</html>
